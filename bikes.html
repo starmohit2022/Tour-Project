@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bikes Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 2em;
+            text-align: center;
+        }
+
+        .bike-gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .bike {
+            margin: 1em;
+            text-align: center;
+        }
+
+        .bike img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form label, form input, form textarea {
+            margin: 0.5em 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Bike Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#bikes">Our Bikes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Home</h2>
+        <p>Welcome to the best bike store in town. We offer a variety of bikes to suit every rider's needs.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are passionate about bikes and dedicated to providing the best service to our customers.</p>
+    </section>
+
+    <section id="bikes">
+        <h2>Our Bikes</h2>
+        <div class="bike-gallery">
+            <!-- Bike 1 -->
+            <div class="bike">
+                <img src="bike1.jpg" alt="Bike 1">
+                <h3>Mountain Bike</h3>
+                <p>A great bike for off-road adventures.</p>
+            </div>
+            <!-- Bike 2 -->
+            <div class="bike">
+                <img src="bike2.jpg" alt="Bike 2">
+                <h3>Road Bike</h3>
+                <p>Perfect for long distance road cycling.</p>
+            </div>
+            <!-- Bike 3 -->
+            <div class="bike">
+                <img src="bike3.jpg" alt="Bike 3">
+                <h3>Hybrid Bike</h3>
+                <p>The best of both worlds for city and off-road cycling.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="formStatus"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Our Bike Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                document.getElementById('formStatus').innerText = 'Thank you for your message!';
+            } else {
+                document.getElementById('formStatus').innerText = 'Please fill in all fields.';
+            }
+        });
+    </script>
+</body>
+</html>
